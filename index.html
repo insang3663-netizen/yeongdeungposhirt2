@@ -50,13 +50,17 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 1rem;
+        padding: 0.8rem 1rem;
+        gap: 1rem;
       }
 
       nav h1 {
-        font-size: 1.3rem;
+        font-size: clamp(1rem, 4vw, 1.3rem);
         font-weight: 700;
         color: #d4af37;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
       }
 
       nav a {
@@ -65,6 +69,7 @@
         text-decoration: none;
         color: #e8e8e8;
         transition: color 0.3s;
+        white-space: nowrap;
       }
 
       nav a:hover {
@@ -74,11 +79,13 @@
       .nav-phone {
         background: #d4af37;
         color: #0a0a0a;
-        padding: 0.6rem 1.2rem;
+        padding: 0.6rem 1rem;
         border-radius: 4px;
         font-weight: 600;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         text-decoration: none;
+        white-space: nowrap;
+        flex-shrink: 0;
       }
 
       .nav-phone:hover {
@@ -315,25 +322,134 @@
       }
 
       @media (max-width: 768px) {
+        nav .container {
+          flex-wrap: wrap;
+          padding: 0.6rem 0.8rem;
+        }
+
+        nav h1 {
+          font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+          flex: 0 1 auto;
+        }
+
+        nav > .container > div {
+          display: flex;
+          gap: 0.5rem;
+          flex-wrap: wrap;
+          justify-content: flex-end;
+          flex: 1;
+          align-items: center;
+        }
+
+        nav a {
+          margin-left: 0.5rem;
+          font-size: 0.75rem;
+          padding: 0.4rem 0.6rem;
+        }
+
+        .nav-phone {
+          padding: 0.5rem 0.8rem;
+          font-size: 0.75rem;
+          margin-left: 0.5rem;
+        }
+
+        .hero {
+          margin-top: 3.5rem;
+          padding: 2rem 0;
+        }
+
         .hero-content {
           grid-template-columns: 1fr;
+          gap: 1.5rem;
         }
 
         .hero-text h2 {
-          font-size: 2rem;
+          font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+
+        .hero-text h3 {
+          font-size: clamp(1rem, 3.5vw, 1.3rem);
+        }
+
+        .hero-text p {
+          font-size: 0.9rem;
+          line-height: 1.5;
+        }
+
+        .cta-button {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.9rem;
         }
 
         .info-grid {
-          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 1rem;
+        }
+
+        .info-card h3 {
+          font-size: 1rem;
+        }
+
+        .info-card p {
+          font-size: 0.85rem;
         }
 
         .gallery-grid {
           grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+
+        .gallery-item img {
+          height: 250px;
+        }
+
+        .faq-section h2 {
+          font-size: clamp(1.5rem, 5vw, 2rem);
+        }
+
+        .faq-question {
+          font-size: 1rem;
+        }
+
+        .faq-answer {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        nav .container {
+          padding: 0.5rem 0.6rem;
+        }
+
+        nav h1 {
+          font-size: clamp(0.85rem, 3vw, 1rem);
         }
 
         nav a {
-          margin-left: 1rem;
-          font-size: 0.8rem;
+          font-size: 0.7rem;
+          margin-left: 0.3rem;
+        }
+
+        .nav-phone {
+          padding: 0.4rem 0.6rem;
+          font-size: 0.7rem;
+        }
+
+        .hero {
+          margin-top: 3rem;
+          padding: 1.5rem 0;
+        }
+
+        .hero-text h2 {
+          font-size: clamp(1.3rem, 4vw, 1.8rem);
+        }
+
+        .hero-text h3 {
+          font-size: clamp(0.9rem, 3vw, 1.1rem);
+        }
+
+        .container {
+          padding: 0 0.8rem;
         }
       }
     </style>
