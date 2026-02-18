@@ -55,13 +55,14 @@
       }
 
       nav h1 {
-        font-size: clamp(1.2rem, 5vw, 1.5rem);
+        font-size: clamp(1.5rem, 6vw, 2.5rem);
         font-weight: 700;
         color: #d4af37;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         letter-spacing: 0.5px;
+        text-shadow: 0 2px 8px rgba(212, 175, 55, 0.3);
       }
 
       nav a {
@@ -305,8 +306,9 @@
         }
 
         nav h1 {
-          font-size: clamp(0.9rem, 3.5vw, 1.1rem);
+          font-size: clamp(1.2rem, 4.5vw, 1.8rem);
           flex: 0 1 auto;
+          letter-spacing: 0.4px;
         }
 
         nav > .container > div {
@@ -335,18 +337,20 @@
         }
 
         .hero-text h2 {
-          font-size: clamp(2rem, 6vw, 2.5rem);
+          font-size: clamp(2rem, 6vw, 2.8rem);
           letter-spacing: 0.8px;
+          line-height: 1.3;
         }
 
         .hero-text h3 {
-          font-size: clamp(1.2rem, 4vw, 1.5rem);
+          font-size: clamp(1.1rem, 4vw, 1.4rem);
           letter-spacing: 0.5px;
+          line-height: 1.4;
         }
 
         .hero-text p {
           font-size: 0.95rem;
-          line-height: 1.6;
+          line-height: 1.8;
           letter-spacing: 0.3px;
         }
 
@@ -361,6 +365,7 @@
 
         .info-card p {
           font-size: 0.85rem;
+          line-height: 1.6;
         }
 
         .gallery-grid {
@@ -382,6 +387,7 @@
 
         .faq-answer {
           font-size: 0.9rem;
+          line-height: 1.7;
         }
 
         .floating-phone {
@@ -399,11 +405,12 @@
         }
 
         nav h1 {
-          font-size: clamp(0.85rem, 3vw, 1rem);
+          font-size: clamp(1rem, 3.5vw, 1.3rem);
+          letter-spacing: 0.3px;
         }
 
         nav a {
-          font-size: 0.7rem;
+          font-size: 0.65rem;
           margin-left: 0.3rem;
         }
 
@@ -413,17 +420,78 @@
         }
 
         .hero-text h2 {
-          font-size: clamp(1.5rem, 5vw, 2rem);
+          font-size: clamp(1.6rem, 5.5vw, 2.2rem);
           letter-spacing: 0.6px;
+          line-height: 1.3;
         }
 
         .hero-text h3 {
-          font-size: clamp(1rem, 3.5vw, 1.2rem);
+          font-size: clamp(1rem, 4vw, 1.3rem);
           letter-spacing: 0.4px;
+          line-height: 1.4;
+        }
+
+        .hero-text p {
+          font-size: 0.9rem;
+          line-height: 1.8;
+          letter-spacing: 0.2px;
         }
 
         .container {
           padding: 0 0.8rem;
+        }
+
+        .info-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 0.8rem;
+        }
+
+        .info-card {
+          padding: 1rem;
+        }
+
+        .info-card h3 {
+          font-size: 0.9rem;
+        }
+
+        .info-card p {
+          font-size: 0.75rem;
+          line-height: 1.5;
+        }
+
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          gap: 0.8rem;
+        }
+
+        .gallery-item img {
+          height: 200px;
+        }
+
+        .faq-section {
+          padding: 2rem 0;
+          margin: 3rem 0;
+        }
+
+        .faq-section h2 {
+          font-size: clamp(1.3rem, 5vw, 1.8rem);
+          margin-bottom: 2rem;
+        }
+
+        .faq-item {
+          margin-bottom: 1rem;
+          padding-bottom: 1rem;
+        }
+
+        .faq-question {
+          font-size: 0.95rem;
+          line-height: 1.5;
+        }
+
+        .faq-answer {
+          font-size: 0.85rem;
+          line-height: 1.7;
+          margin-top: 0.8rem;
         }
 
         .floating-phone {
@@ -439,7 +507,7 @@
   <body>
     <nav>
       <div class="container">
-        <h1>강서셔츠룸 애플</h1>
+        <h1>강서셔츠룸 No.1</h1>
         <div>
           <a href="#services">서비스</a>
           <a href="#gallery">갤러리</a>
@@ -537,7 +605,7 @@
 
     <footer>
       <div class="container">
-        <h3>강서셔츠룸 애플</h3>
+        <h3>강서셔츠룸 No.1</h3>
         <p>마곡·화곡 프리미엄 가라오케</p>
         <p style="margin-top: 1.5rem; font-size: 0.9rem;">카카오톡: inhighg | 24시간 연중무휴</p>
       </div>
