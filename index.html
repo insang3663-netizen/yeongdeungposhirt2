@@ -23,6 +23,99 @@
         color: #e8e8e8;
         line-height: 1.6;
       }
+      
+      /* ===== 실시간 현황 바 ===== */
+      .live-status-bar {
+        background: linear-gradient(90deg, rgba(0, 255, 0, 0.08), rgba(0, 255, 0, 0.02));
+        border-bottom: 1px solid rgba(0, 255, 0, 0.3);
+        padding: 1.2rem 1.5rem;
+        font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        font-size: 0.95rem;
+        color: #d0d0d0;
+        line-height: 1.6;
+      }
+      
+      .live-status-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+      
+      .live-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        font-weight: 600;
+        color: #00ff00;
+        flex-shrink: 0;
+      }
+      
+      .live-dot {
+        width: 10px;
+        height: 10px;
+        background-color: #00ff00;
+        border-radius: 50%;
+        animation: blink 1.2s infinite;
+      }
+      
+      @keyframes blink {
+        0%, 49%, 100% { opacity: 1; }
+        50%, 99% { opacity: 0.3; }
+      }
+      
+      .live-info {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+        flex: 1;
+      }
+      
+      .live-item {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+      }
+      
+      .live-label {
+        font-size: 0.8rem;
+        color: #999;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      
+      .live-value {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #ffffff;
+      }
+      
+      .live-datetime {
+        font-size: 0.85rem;
+        color: #999;
+        white-space: nowrap;
+        margin-left: auto;
+      }
+      
+      @media (max-width: 768px) {
+        .live-status-bar {
+          padding: 1rem 1rem;
+        }
+        .live-status-inner {
+          gap: 1rem;
+        }
+        .live-info {
+          gap: 1rem;
+          width: 100%;
+        }
+        .live-datetime {
+          width: 100%;
+          margin-left: 0;
+          text-align: right;
+        }
+      }
 
       h1, h2, h3, h4, h5, h6 {
         font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -552,6 +645,56 @@
     </style>
   </head>
   <body>
+    <!-- 실시간 현황 바 -->
+    <div class="live-status-bar">
+      <div class="live-status-inner">
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          <span>LIVE</span>
+        </div>
+        <div class="live-info">
+          <div class="live-item">
+            <span class="live-label">출근 매니저</span>
+            <span class="live-value" id="manager-count">25명</span>
+          </div>
+          <div class="live-item">
+            <span class="live-label">즉시 선택 가능</span>
+            <span class="live-value" id="available-count">8명</span>
+          </div>
+          <div class="live-item">
+            <span class="live-label">현재 대기</span>
+            <span class="live-value" id="waiting-status">없음 (즉시 입장)</span>
+          </div>
+        </div>
+        <div class="live-datetime" id="current-datetime">2026-02-25 14:30</div>
+      </div>
+    </div>
+    
+    <script>
+      // 실시간 현황 업데이트
+      function updateLiveStatus() {
+        const managerCount = Math.floor(Math.random() * 11) + 20;
+        const availableCount = Math.floor(Math.random() * 6) + 5;
+        const waitingOptions = ['없음 (즉시 입장)', '1팀 대기 중', '2팀 대기 중'];
+        const waitingStatus = waitingOptions[Math.floor(Math.random() * waitingOptions.length)];
+        
+        document.getElementById('manager-count').textContent = managerCount + '명';
+        document.getElementById('available-count').textContent = availableCount + '명';
+        document.getElementById('waiting-status').textContent = waitingStatus;
+        
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const date = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        document.getElementById('current-datetime').textContent = `${year}-${month}-${date} ${hours}:${minutes}`;
+      }
+      
+      updateLiveStatus();
+      setInterval(updateLiveStatus, 60000);
+    </script>
+    
     <nav>
       <div class="container">
         <h1>영등포셔츠룸 No.1</h1>
